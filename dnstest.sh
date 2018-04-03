@@ -26,12 +26,12 @@ PROVIDERS="
 208.67.220.220#opendns2 
 64.6.64.6#verisign 
 8.26.56.26#comodo 
-199.85.126.20#norton 
+199.85.126.10#norton 
 216.146.35.35#dyn
 209.244.0.3#level3 
-156.154.70.3#neustar 
+156.154.70.1#neustar 
 185.228.168.168#cleanbrowsing 
-77.88.8.7#yandex 
+77.88.8.1#yandex 
 "
 
 # Domains to test. Duplicated domains are ok
