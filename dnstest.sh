@@ -35,12 +35,23 @@ PROVIDERS="
 "
 
 # Domains to test. Duplicated domains are ok
-DOMAINS2TEST="www.google.com amazon.com facebook.com www.youtube.com www.reddit.com  wikipedia.org twitter.com gmail.com www.google.com whatsapp.com"
+DOMAINS="
+www.google.com
+www.amazon.com
+www.facebook.com
+www.youtube.com
+www.nytimes.com
+www.ebay.com
+www.yahoo.com
+en.wikipedia.org
+twitter.com
+www.netflix.com
+"
 
 
 totaldomains=0
 printf "%-15s" ""
-for d in $DOMAINS2TEST; do
+for d in $DOMAINS; do
     totaldomains=$((totaldomains + 1))
     printf "%-8s" "test$totaldomains"
 done
@@ -54,8 +65,8 @@ for p in $PROVIDERS; do
     ftime=0
 
     printf "%-15s" "$pname"
-    for d in $DOMAINS2TEST; do
-        ttime=`dig @$pip $d |grep "Query time:" | cut -d : -f 2- | cut -d " " -f 2`
+    for d in $DOMAINS; do
+        ttime=`dig +stats @$pip $d |grep "Query time:" | cut -d : -f 2- | cut -d " " -f 2`
 	if [ -z "$ttime" ]; then
 	    #let's have time out be 1s = 1000ms
 	    ttime=1000
@@ -63,7 +74,7 @@ for p in $PROVIDERS; do
         printf "%-8s" "$ttime ms"
         ftime=$((ftime + ttime))
     done
-    avg=`bc <<< "scale=2; $ftime/$totaldomains"`
+    avg=`bc -lq <<< "scale=2; $ftime/$totaldomains"`
 
     echo "  $avg"
 done
