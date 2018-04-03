@@ -15,18 +15,23 @@ fi
 
 
 PROVIDERS="
-1.1.1.1#cloudflare 
-1.0.0.1#cloudflare2nd 
-8.8.8.8#google 
-8.8.4.4#google2nd
+75.75.75.75#comcast1 
+75.75.76.76#comcast2 
+1.1.1.1#cloudflare1 
+1.0.0.1#cloudflare2 
+8.8.8.8#google1 
+8.8.4.4#google2 
 9.9.9.9#quad9 
-208.67.222.123#opendns 
+208.67.222.222#opendns1 
+208.67.220.220#opendns2 
+64.6.64.6#verisign 
+8.26.56.26#comodo 
 199.85.126.20#norton 
+216.146.35.35#dyn
+209.244.0.3#level3 
+156.154.70.3#neustar 
 185.228.168.168#cleanbrowsing 
 77.88.8.7#yandex 
-176.103.130.132#adguard 
-156.154.70.3#neustar 
-8.26.56.26#comodo
 "
 
 # Domains to test. Duplicated domains are ok
